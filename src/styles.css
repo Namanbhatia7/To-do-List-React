@@ -72,8 +72,13 @@ button span {
   border: 2px solid hsl(198, 1%, 29%);
 }
 
-li {
+#toDo {
   text-align: left;
   position: relative;
   padding: 0.5rem;
+}
+
+#toDo.done{
+  text-decoration: line-through;
+  color: red;
 }

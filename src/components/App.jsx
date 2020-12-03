@@ -7,6 +7,8 @@ const [inputText,setInputText] = useState("");
 
 const [newList, setNewList] = useState([]);
 
+const [newClass, setClass] = useState(["undone",0]);
+
 function inputItem(event){
   const newInput = event.target.value;
   setInputText(newInput);
@@ -18,6 +20,15 @@ function addItem(){
   })
 
   setInputText("")
+}
+
+function changeState(){
+  if(newClass[1]===0){
+    setClass(["done",1])
+  }
+  else if(newClass[1]==1){
+    setClass(["undone",0])
+  }
 }
 
 
@@ -37,7 +48,7 @@ function addItem(){
           {newList.map(toDoItem => {
             return(
               
-              <li key={toDoItem.key}>{toDoItem}</li>
+              <li onClick={changeState} className={newClass[0]} id="toDo" key={toDoItem.key}>{toDoItem}</li>
             )
             } )}
         </ul>
